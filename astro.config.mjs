@@ -1,4 +1,5 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig } from 'astro/config';
+import netlify from '@astrojs/netlify/functions';
 import svelte from '@astrojs/svelte'
 import mdx from '@astrojs/mdx'
 import remarkGfm from 'remark-gfm'
@@ -7,6 +8,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
+  adapter: netlify(),
   site: 'https://astro-blog-template.netlify.app',
   integrations: [mdx(), svelte()],
   markdown: {

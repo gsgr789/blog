@@ -1,13 +1,13 @@
 ---
-title: Markdown Test Page
+title: My own test
 publishDate: 01 Dec 2021
 description: A sample page with the most common elements of an article, including headings, paragraphs, lists, and images. Use it as a starting point for applying your own styles.
-heroImage: "/assets/blog/casual-life-3d-likes.webp"
+heroImage: "/assets/blog/couple-happy.webp"
 ---
 
-![Illustration of woman using a computer receiving likes](/assets/blog/casual-life-3d-likes.webp)
+![Illustration of woman using a computer receiving likes](/assets/blog/couple-happy.webp)
 
-This page is an adapted version of [markdown-test-page](https://github.com/fullpipe/markdown-test-page). It should give you an idea of how different elements are styled on this template.
+testing my stuff.
 
 ## <a name="top"></a> Table of Contents
 

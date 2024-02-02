@@ -1,9 +1,24 @@
+---
+// Import the NewsletterForm component
+import NewsletterForm from './NewsletterForm.astro';
+
+// Add a prop to control the display of the newsletter form
+export interface Props {
+  showNewsletterForm?: boolean;
+}
+
+const { showNewsletterForm = true } = Astro.props;
+
+---
+
 <footer>
+  <!-- Use the showNewsletterForm prop to conditionally render the NewsletterForm -->
+  {showNewsletterForm && <NewsletterForm />}
   <span>
-    &copy; {new Date().getFullYear()} Your Blog.
+      &copy; {new Date().getFullYear()} Your Blog.
     Powered by <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>.
-    Template by <a href="https://www.twitter.com/Charca" target="_blank" rel="noopener">Maxi Ferreira</a>.
-  </span>
+    Template by <a href="https://www.twitter.com" target="_blank" rel="noopener">Me</a>.
+    </span>
 </footer>
 
 <style>

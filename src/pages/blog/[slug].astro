@@ -20,6 +20,10 @@ const permalink = `${Astro.site.href}blog/${slug}`;
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
   <header>
     <p>{publishDate} ~ {readingTime}</p>
+
+     {/*show hero image in index of posts, but this created double images in individual posts*/}
+    {/*<img src={frontmatter.heroImage} alt={title} />*/}
+
     <h1>{title}</h1>
     <hr />
   </header>

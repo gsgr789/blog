@@ -1,0 +1,20 @@
+---
+// NewsletterForm.astro
+// This is the frontmatter section where you can include JavaScript.
+// Import the stylesheet at the top of your component
+import '../styles/newsletter-form.css';
+
+const { align = 'left' } = Astro.props; // Default to left if not specified
+
+---
+  <h2>Subscribe</h2>
+  <form name="contact" method="POST" data-netlify="true" id="newsletter-form">
+      <div class="form-row">
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          <button type="submit">Sign me up!</button>
+      </div>
+  </form>
+  <div id="success-message" style="display: none;">Success</div>
+  <div id="error-message" style="display: none;">Error</div>
+</div>
+<script src="/src/scripts/newsletter.js"></script>

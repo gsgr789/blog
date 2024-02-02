@@ -8,8 +8,9 @@ export interface Props {
   description: string;
   permalink: string;
   current?: string;
+  showNewsletterForm?: boolean; // Add this line to don't show newsletter form in index
 }
-const { title, description, permalink, current } = Astro.props;
+const { title, description, permalink, current, showNewsletterForm } = Astro.props;
 ---
 <html lang="en">
 <head>
@@ -23,7 +24,7 @@ const { title, description, permalink, current } = Astro.props;
       <slot />
     </main>
 
-    <Footer />
+    <Footer showNewsletterForm={showNewsletterForm} /> <!-- Pass the prop here -->
   </div>
 </body>
 </html>
@@ -47,4 +48,12 @@ const { title, description, permalink, current } = Astro.props;
     display: flex;
     flex-direction: column;
   }
+
+  /*resize hero images in index of posts so looks good*/
+  .post-hero-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
 </style>

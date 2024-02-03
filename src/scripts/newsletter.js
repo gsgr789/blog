@@ -12,7 +12,7 @@
         })
         .then(response => {
             if (response.ok) {
-                document.getElementById("success-message").style.display = 'block';
+                //document.getElementById("success-message").style.display = 'block';
                 alert("Thank you for your submission");
                 myForm.reset(); // Reset the form fields after successful submission
             } else {

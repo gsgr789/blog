@@ -7,14 +7,16 @@ import '../styles/newsletter-form.css';
 const { align = 'left' } = Astro.props; // Default to left if not specified
 
 ---
-  <h2>Subscribe</h2>
+<div class="form-row">
+  <p class="form-copy">Subscribe to get the best tips every 2 weeks delivered in your inbox</p>
+</div>
   <form name="contact" method="POST" data-netlify="true" id="newsletter-form">
       <div class="form-row">
           <input type="email" id="email" name="email" placeholder="Enter your email" required>
           <button type="submit">Sign me up!</button>
       </div>
   </form>
-  <div id="success-message" style="display: none;">Success</div>
-  <div id="error-message" style="display: none;">Error</div>
+  <!-- <div id="success-message" style="display: none;">Success</div>
+  <div id="error-message" style="display: none;">Error</div>-->
 </div>
 <script src="/src/scripts/newsletter.js"></script>

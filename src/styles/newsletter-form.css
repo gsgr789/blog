@@ -14,6 +14,11 @@
     justify-content: left;
     align-items: left;
   }
+
+/* Alignment for the footer */
+footer {
+  text-align: center;
+}
   
   input[type="email"] {
     padding: 10px;
@@ -48,6 +53,7 @@
     }
   }
   
+  /*
   #success-message, #error-message {
     color: green;
     text-align: center;

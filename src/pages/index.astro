@@ -14,7 +14,7 @@ const permalink = Astro.site.href;
     <div class="home-copy">
       <h1>Welcome to your new Astro Blog</h1>
       <p>Subscribe to get the latest tips</p>
-      <NewsletterForm/> <!-- This will render the NewsletterForm in the body -->
+      <NewsletterForm align="left"/> <!-- This will render the NewsletterForm with left alignment --><!-- This will render the NewsletterForm in the body -->
     </div>
     
 
@@ -69,7 +69,7 @@ const permalink = Astro.site.href;
   }
 
   .caption {
-    font-size: .8em;
+    font-size: 1em;
     font-style: italic;
     text-align: left;
   }
@@ -98,7 +98,7 @@ const permalink = Astro.site.href;
     .home-copy {
       flex: 0;
       padding-bottom: 2em;
-      text-align: center;
+      text-align: left;
     }
   }
 </style>

@@ -4,7 +4,6 @@
 // Import the stylesheet at the top of your component
 import '../styles/newsletter-form.css';
 
-const { align = 'left' } = Astro.props; // Default to left if not specified
 
 ---
 <div class="form-row">
@@ -16,6 +15,7 @@ const { align = 'left' } = Astro.props; // Default to left if not specified
           <button type="submit">Sign me up!</button>
       </div>
   </form>
+  <!--prior feature to have hidden div to show success or fail message -->
   <!-- <div id="success-message" style="display: none;">Success</div>
   <div id="error-message" style="display: none;">Error</div>-->
 </div>

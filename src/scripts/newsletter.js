@@ -12,6 +12,7 @@
         })
         .then(response => {
             if (response.ok) {
+                //prior feature to show hidden div with success or fail message
                 //document.getElementById("success-message").style.display = 'block';
                 alert("Thank you for your submission");
                 myForm.reset(); // Reset the form fields after successful submission

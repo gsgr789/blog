@@ -5,14 +5,14 @@
   }
   
   .form-copy {
-    text-align: left;
+    text-align: center;
   }
 
   /*alignment email form*/
   .form-row {
     display: flex;
-    justify-content: left;
-    align-items: left;
+    justify-content: center;
+    align-items: center;
   }
 
 /* Alignment for the footer */
@@ -53,7 +53,7 @@ footer {
     }
   }
   
-  /*
+  /*prior div messages that alerted of success or error
   #success-message, #error-message {
     color: green;
     text-align: center;

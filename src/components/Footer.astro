@@ -14,8 +14,10 @@ const { showNewsletterForm = true } = Astro.props;
 <footer>
   <!-- Use the showNewsletterForm prop to conditionally render the NewsletterForm -->
   {showNewsletterForm && <NewsletterForm />}
+  </footer>
+  <footer>
   <span>
-      &copy; {new Date().getFullYear()} Your Blog.
+    &copy; {new Date().getFullYear()} Your Blog.
     Powered by <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>.
     Template by <a href="https://www.twitter.com" target="_blank" rel="noopener">Me</a>.
     </span>
@@ -24,7 +26,7 @@ const { showNewsletterForm = true } = Astro.props;
 <style>
   footer {
     color: var(--text-secondary);
-    font-size: .8em;
+    font-size: 1em;
     margin: 1em auto;
     max-width: 1400px;
     padding: 1em 2em;

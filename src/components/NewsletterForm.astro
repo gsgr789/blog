@@ -4,7 +4,6 @@
 // Import the stylesheet at the top of your component
 import '../styles/newsletter-form.css';
 
-
 ---
 <div class="form-row">
   <p class="form-copy">Subscribe to get the best tips every 2 weeks delivered in your inbox</p>
@@ -14,9 +13,15 @@ import '../styles/newsletter-form.css';
           <input type="email" id="email" name="email" placeholder="Enter your email" required>
           <button type="submit">Sign me up!</button>
       </div>
-  </form>
-  <!--prior feature to have hidden div to show success or fail message
-  <div id="success-message" style="display: none;">Success</div>
-  <div id="error-message" style="display: none;">Error</div>-->
-</div>
+    </form>
+
+<!--second form that appears after user enter email. this second form is to send the comment on struggling factors -->
+    <div id="success-message" style="display: none;">
+    <form id="comment-form" name="comment-form" method="POST" data-netlify="true">
+      <input type="text" id="comment" name="comment" placeholder="Your Comment" required>
+      <button type="submit" id="comment-submit">Submit Comment</button>
+    </div>
+    </form>
+
 <script src="/src/scripts/newsletter.js"></script>
+

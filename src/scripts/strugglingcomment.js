@@ -3,7 +3,7 @@
 // Define the submitComment function
 const submitComment = (event) => {
   event.preventDefault();
-  const commentForm = document.getElementById("comment-form");
+  const commentForm = event.target;
   const formData = new FormData(commentForm);
   fetch("/", {
     method: "POST",
@@ -14,21 +14,31 @@ const submitComment = (event) => {
   })
   .then(response => {
     if (response.ok) {
-      alert("Thank you for your comment");
-      commentForm.reset(); // Reset the form fields after successful submission
+        //show hidden div to thank user for struggling comment
+        document.getElementById("thanks-comment").style.display = 'block';
+        myForm.reset(); // Reset the form fields after successful submission
     } else {
-      throw new Error('Network response was not ok.');
+        //show hidden div to alert user of error submitting comment
+        document.getElementById("problem-comment").style.display = 'block';
+        myForm.reset(); // Reset the form fields after error submission
     }
-  })
-  .catch((error) => {
+})
+.catch((error) => {
     alert(error);
-  });
+});
 };
 
-// Attach the submitComment function to the form's submit event
-document.addEventListener("DOMContentLoaded", () => {
-  const commentForm = document.getElementById("comment-form");
-  if (commentForm) {
-    commentForm.addEventListener("submit", submitComment);
+
+const attachFormSubmitListener = () => {
+  const form = document.getElementById("comment-form");
+  if (form) {
+      form.removeEventListener("submit", submitComment); // Remove any existing listeners to avoid duplicates
+      form.addEventListener("submit", submitComment);
   }
-});
+};
+
+
+document.addEventListener("DOMContentLoaded", attachFormSubmitListener);
+document.addEventListener("astro:after-swap", attachFormSubmitListener);
+
+

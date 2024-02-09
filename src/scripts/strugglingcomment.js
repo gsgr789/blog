@@ -8,7 +8,7 @@ const submitComment = (event) => {
   fetch("/", {
     method: "POST",
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
+      "Content-Type": "application/x-www-form-urlencoded",
     },
     body: new URLSearchParams(formData).toString(),
   })
@@ -16,16 +16,21 @@ const submitComment = (event) => {
     if (response.ok) {
         //show hidden div to thank user for struggling comment
         document.getElementById("thanks-comment").style.display = 'block';
-        myForm.reset(); // Reset the form fields after successful submission
+        // Optionally, hide the comment form to prevent further submissions
+          commentForm.style.display = 'none';
     } else {
         //show hidden div to alert user of error submitting comment
         document.getElementById("problem-comment").style.display = 'block';
-        myForm.reset(); // Reset the form fields after error submission
+        
     }
+    commentForm.reset(); // Reset the form fields after submission
 })
 .catch((error) => {
-    alert(error);
+  console.error('Error:', error);
+  // Show hidden div to alert user of error submitting comment
+  document.getElementById("problem-comment").style.display = 'block';
 });
+
 };
 
 

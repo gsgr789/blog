@@ -8,7 +8,7 @@ const submitComment = (event) => {
   fetch("/", {
     method: "POST",
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Type": "application/x-www-form-urlencoded"
     },
     body: new URLSearchParams(formData).toString(),
   })

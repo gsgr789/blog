@@ -15,6 +15,14 @@
     align-items: center;
   }
 
+  /*hidden comment box after subscribe form is submitted*/
+  textarea{
+    align-items: center;
+    font-size: 30px;
+    width: 600px;
+    height: 300px;
+    }
+
 /* Alignment for the footer */
 footer {
   text-align: center;

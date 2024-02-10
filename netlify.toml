@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/#"
+  to = "https://avanzel.com"
+  status = 301
+  force = true

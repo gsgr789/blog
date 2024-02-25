@@ -1,53 +1,103 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+// Metadata for SEO and page information
 const title = 'Blog';
 const description = 'Latest articles.';
 const permalink = `${Astro.site.href}blog`;
 
+
+// Fetch and sort blog posts
 let allPosts = await Astro.glob('../../data/blog-posts/*.md');
 allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+
+// Separate the featured post from the others
+const featuredPost = allPosts[0];
+const otherPosts = allPosts.slice(1, 5);
+
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
-  <div class="container">
+  <div class="container-index-blog">
     <h1>Blog</h1>
-    {allPosts.map((post, index) => {
-      const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
-      return (
-        <div>
-          { index !== 0 && <hr /> }
-          <div class="post-item">
-            <img src={post.frontmatter.heroImage} alt={post.frontmatter.title} />
-            <h2>
-              <a href={href}>{post.frontmatter.title}</a>
-            </h2>
-            <p>{post.frontmatter.description}</p>
-            <div class="post-item-footer">
-              <span class="post-item-date">— {post.frontmatter.publishDate}</span>
-            </div>
-          </div>
+    <div class="posts-grid">
+      <!-- Featured Post -->
+      <div class="post-item featured">
+        <img src={featuredPost.frontmatter.heroImage} alt={featuredPost.frontmatter.title} loading="lazy" />
+        <h2>
+          <a href={`/blog/${featuredPost.file.split('/').pop().split('.').shift()}`}>{featuredPost.frontmatter.title}</a>
+        </h2>
+        <p>{featuredPost.frontmatter.description}</p>
+      </div>
+      <!-- Other Posts -->
+      {otherPosts.map((post, index) => (
+        <div class={`post-item ${index < 2 ? 'left-column' : 'right-column'}`}>
+          <img src={post.frontmatter.heroImage} alt={post.frontmatter.title} loading="lazy" />
+          <h2>
+            <a href={`/blog/${post.file.split('/').pop().split('.').shift()}`}>{post.frontmatter.title}</a>
+          </h2>
         </div>
-      )
-    })}
+      ))}
+    </div>
   </div>
 </BaseLayout>
 
 <style>
-  h2,
-  .post-item-footer {
-    font-family: var(--font-family-sans);
-    font-weight: 700;
+  .container-index-blog {
+    max-width: 82em;
+    margin: auto;
+    padding: 0.3em;
   }
 
-  .post-item-date {
-    color: var(--text-secondary);
-    text-align: left;
-    text-transform: uppercase;
-    margin-right: 16px;
+  .posts-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1em;
   }
 
-  hr {
-    margin: 60px auto;
+  .post-item {
+    display: flex;
+    flex-direction: column;
+    /*background-color: #f9f9f9; */
+    padding: 1em;
+    /*border: 1px solid #ddd;*/
+    border-bottom: 1px solid #000; /* Add this line to create a bottom border for posts */
+  }
+
+  .featured {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  border-bottom: 1px solid #000; /* Add this line to create a bottom border for posts*/
+}
+
+
+  .left-column {
+    grid-row: span 1;
+  }
+
+  .right-column {
+    grid-row: span 1;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 1024px) {
+    .posts-grid {
+      grid-template-columns: 1fr 2fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .post-item, .featured, .left-column, .right-column {
+      grid-column: auto;
+    }
   }
 </style>

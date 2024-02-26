@@ -12,7 +12,7 @@
         })
         .then(response => {
             if (response.ok) {
-                //show hidden div so user can send struggling comment
+                //show hidden div so user can send comment
                 document.getElementById("success-message").style.display = 'block';
                 alert("Thank you for your submission");
 

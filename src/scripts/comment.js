@@ -1,4 +1,4 @@
-//strugglingcomment.js
+//commentForm.js
 
 // Define the submitComment function
 const submitComment = async (event) => {
@@ -13,7 +13,7 @@ const submitComment = async (event) => {
     });
 
 
-// Show hidden div to thank user for struggling comment
+// Show hidden div to thank user for comment
 document.getElementById("thanks-comment").style.display = 'block';
 // Optionally, hide the comment form to prevent further submissions
 commentForm.style.display = 'none';

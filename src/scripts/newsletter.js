@@ -1,42 +1,63 @@
 // newsletter.js
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const myForm = event.target;
-        const formData = new FormData(myForm);
-        fetch("/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: new URLSearchParams(formData).toString(),
-        })
-        .then(response => {
-            if (response.ok) {
-                //show hidden div so user can send struggling comment
-                document.getElementById("success-message").style.display = 'block';
-                alert("Thank you for your submission");
+    // Defines a function to handle the form submission event
+const handleSubmit = (event) => {
+    // Prevents the default form submission behavior, which would cause a page reload
+    event.preventDefault();
 
-      // Hide the first email form after submitting, so when user sees comment box is hidden and not cluttered; by setting its display style to 'none'
-      myForm.style.display = 'none';
+    // Retrieves the form element that triggered the submit event
+    const myForm = event.target;
 
-                myForm.reset(); // Reset the form fields after successful submission
-            } else {
-                throw new Error('Network response was not ok.');
-            }
-        })
-        .catch((error) => {
-            alert(error);
-        });
-    };
-    
-    const attachFormSubmitListener = () => {
-        const form = document.getElementById("newsletter-form");
-        if (form) {
-            form.removeEventListener("submit", handleSubmit); // Remove any existing listeners to avoid duplicates
-            form.addEventListener("submit", handleSubmit);
+    // Creates a new FormData object, capturing the form's current values
+    const formData = new FormData(myForm);
+
+    // Uses the Fetch API to asynchronously submit the form data to the server
+    fetch("/", {
+        method: "POST", // Specifies the HTTP method to use for the request
+        headers: {
+            // Sets the Content-Type header to indicate the format of the data being sent
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        // Converts the FormData object to a URL-encoded string, suitable for POSTing
+        body: new URLSearchParams(formData).toString(),
+    })
+    .then(response => {
+        // Checks if the server responded with a success status code
+        if (response.ok) {
+            // If the submission was successful, display a success message to the user
+            document.getElementById("success-message").style.display = 'block';
+            alert("Thank you for your submission");
+
+            // Hides the form to prevent further submissions and reduce clutter
+            myForm.style.display = 'none';
+
+            // Resets the form fields to their initial values
+            myForm.reset();
+        } else {
+            // If the server response was not successful, throw an error
+            throw new Error('Network response was not ok.');
         }
-    };
-    
-    document.addEventListener("DOMContentLoaded", attachFormSubmitListener);
-    document.addEventListener("astro:after-swap", attachFormSubmitListener);
-    
+    })
+    .catch((error) => {
+        // Catches any errors that occurred during the fetch operation or response handling
+        alert(error);
+    });
+};
+
+// Defines a function to attach the submit event listener to the form
+const attachFormSubmitListener = () => {
+    // Retrieves the form element by its ID
+    const form = document.getElementById("newsletter-form");
+
+    // Checks if the form element exists
+    if (form) {
+        // Removes any existing submit event listeners to avoid duplicate submissions
+        form.removeEventListener("submit", handleSubmit);
+        // Adds the handleSubmit function as an event listener for the form's submit event
+        form.addEventListener("submit", handleSubmit);
+    }
+};
+
+// Attaches the form submit event listener once the DOM content has fully loaded
+document.addEventListener("DOMContentLoaded", attachFormSubmitListener);
+// Re-attaches the form submit event listener after any dynamic content swaps, useful in SPA frameworks
+document.addEventListener("astro:after-swap", attachFormSubmitListener);

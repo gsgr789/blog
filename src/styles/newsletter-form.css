@@ -12,13 +12,16 @@
     align-items: center;
   }
 
-/*hidden comment box after subscribe form is submitted*/
-textarea{
+/* Responsive textarea */
+textarea {
   align-items: center;
-  font-size: 30px;
-  width: 30rem;
-  height: 18rem;
-  }
+  font-size: 16px; /* Adjusted font size for better readability on mobile */
+  width: 100%; /* Set width to 100% to be fully responsive */
+  max-width: 30rem; /* Optional: Set a max-width to prevent the textarea from being too wide on large screens */
+  height: auto; /* Set height to auto to adjust based on content */
+  min-height: 18rem; /* Optional: Set a minimum height */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
 
 /* Alignment for the footer */
 footer {
@@ -58,14 +61,9 @@ footer {
     }
   }
   
-  /*prior div messages that alerted of success or error
-  #success-message, #error-message {
-    color: green;
-    text-align: center;
-    margin-top: 10px;
+/* Additional media query for very small devices */
+@media (max-width: 400px) {
+  textarea {
+    font-size: 14px; /* Further adjust font size for smaller devices */
+  }
 }
-
-#error-message {
-    color: red;
-}
-*/

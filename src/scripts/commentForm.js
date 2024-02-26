@@ -1,4 +1,4 @@
-//strugglingcomment-index.js
+//strugglingcomment.js
 
 // Define the submitComment function
 const submitComment = async (event) => {
@@ -14,20 +14,20 @@ const submitComment = async (event) => {
 
 
 // Show hidden div to thank user for struggling comment
-document.getElementById("thanks-index-comment").style.display = 'block';
+document.getElementById("thanks-comment").style.display = 'block';
 // Optionally, hide the comment form to prevent further submissions
 commentForm.style.display = 'none';
 } catch (error) {
 console.error('Error:', error);
 // Show hidden div to alert user of error submitting comment
-document.getElementById("problem-index-comment").style.display = 'block';
+document.getElementById("problem-comment").style.display = 'block';
 }
 commentForm.reset(); // Reset the form fields after submission
 };
 
 
 const attachFormSubmitListener = () => {
-  const form = document.getElementById("comment-index-form");
+  const form = document.getElementById("comment-form");
   if (form) {
       form.removeEventListener("submit", submitComment); // Remove any existing listeners to avoid duplicates
       form.addEventListener("submit", submitComment);

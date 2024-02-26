@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsletterFormIndex from '../../components/NewsletterFormIndex.astro'; // Ensure this import is present so the newsletter form in middle of page is rendered
 
 // Metadata for SEO and page information
 const title = 'Blog';
 const description = 'Latest articles.';
 const permalink = `${Astro.site.href}blog`;
-
 
 // Fetch and sort blog posts
 let allPosts = await Astro.glob('../../data/blog-posts/*.md');
@@ -41,46 +41,9 @@ const otherPosts = allPosts.slice(1, 5);
     </div>
   </div>  
 
-  <!-- Hero Section -->
-  <div class="full-width-hero">
-    <div class="hero">
-      <div class="hero-text">
-          <h2>Join our newsletter for awesome weekly tips!</h2>
-      </div>
-      <form name="contact-index" method="POST" data-netlify="true" id="newsletter-index-form">
-      <div class="hero-form">
-          <input type="email" placeholder="Your email*" id="email">
-          <button type="submit">Submit</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!--second form that appears after user enter email. this second form is to send the comment on struggling factors -->
-<div id="success-message-index" style="display: none;">
-  <div class="form-row">
-  <p class="form-copy">Please let me know struggles</p> 
-</div>
-    <form id="comment-index-form" name="comment-index-form" method="POST" data-netlify="true" action="#">
-      <div class="form-row">
-      <textarea id="comment" name="comment" placeholder="I'm struggling with"></textarea>
-  <br>
-</div>
-<br>
-<div class="form-row">
-      <button type="submit" id="comment-index-submit">Submit Comment</button>
- </div>
- 
-  <div id="thanks-index-comment" style="display: none;">Thanks for your comment!</div>
-  <div id="problem-index-comment" style="display: none;">Oh no there was a problem</div>
-</div>
-    </form>
-
+  <NewsletterFormIndex align="center"/> 
 
 </BaseLayout>
-
-<script src="/src/scripts/newsletter-index.js"></script>
-<script src="/src/scripts/strugglingcomment-index.js"></script>
 
 
 <style>

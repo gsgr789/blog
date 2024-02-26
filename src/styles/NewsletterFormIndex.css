@@ -1,6 +1,5 @@
 /* NewsletterFormIndex.css */
 
-
 .form-copy {
   text-align: center;
 }
@@ -16,8 +15,8 @@
 textarea{
   align-items: center;
   font-size: 30px;
-  width: 600px;
-  height: 300px;
+  width: 30rem;
+  height: 18rem;
   }
 
 /* Alignment for the footer */

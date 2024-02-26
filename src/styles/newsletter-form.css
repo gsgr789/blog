@@ -15,7 +15,7 @@
 /* Responsive textarea */
 textarea {
   align-items: center;
-  font-size: 16px; /* Adjusted font size for better readability on mobile */
+  font-size: 24px; /* Adjusted font size for better readability on mobile */
   width: 100%; /* Set width to 100% to be fully responsive */
   max-width: 30rem; /* Optional: Set a max-width to prevent the textarea from being too wide on large screens */
   height: auto; /* Set height to auto to adjust based on content */

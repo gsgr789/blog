@@ -39,8 +39,49 @@ const otherPosts = allPosts.slice(1, 5);
         </div>
       ))}
     </div>
+  </div>  
+
+  <!-- Hero Section -->
+  <div class="full-width-hero">
+    <div class="hero">
+      <div class="hero-text">
+          <h2>Join our newsletter for awesome weekly tips!</h2>
+      </div>
+      <form name="contact-index" method="POST" data-netlify="true" id="newsletter-index-form">
+      <div class="hero-form">
+          <input type="email" placeholder="Your email*" id="email">
+          <button type="submit">Submit</button>
+      </div>
+    </form>
   </div>
+</div>
+
+<!--second form that appears after user enter email. this second form is to send the comment on struggling factors -->
+<div id="success-message-index" style="display: none;">
+  <div class="form-row">
+  <p class="form-copy">Please let me know struggles</p> 
+</div>
+    <form id="comment-index-form" name="comment-index-form" method="POST" data-netlify="true" action="#">
+      <div class="form-row">
+      <textarea id="comment" name="comment" placeholder="I'm struggling with"></textarea>
+  <br>
+</div>
+<br>
+<div class="form-row">
+      <button type="submit" id="comment-index-submit">Submit Comment</button>
+ </div>
+ 
+  <div id="thanks-index-comment" style="display: none;">Thanks for your comment!</div>
+  <div id="problem-index-comment" style="display: none;">Oh no there was a problem</div>
+</div>
+    </form>
+
+
 </BaseLayout>
+
+<script src="/src/scripts/newsletter-index.js"></script>
+<script src="/src/scripts/strugglingcomment-index.js"></script>
+
 
 <style>
   .container-index-blog {
@@ -53,13 +94,14 @@ const otherPosts = allPosts.slice(1, 5);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     gap: 1em;
+    padding-bottom: 2rem; /* Add padding at the bottom */
   }
 
   .post-item {
     display: flex;
     flex-direction: column;
     /*background-color: #f9f9f9; */
-    padding: 1em;
+    /*padding: 0em; */
     /*border: 1px solid #ddd;*/
     border-bottom: 1px solid #000; /* Add this line to create a bottom border for posts */
   }
@@ -67,9 +109,15 @@ const otherPosts = allPosts.slice(1, 5);
   .featured {
   grid-column: 2;
   grid-row: 1 / span 2;
-  border-bottom: 1px solid #000; /* Add this line to create a bottom border for posts*/
+  border: 1px solid #000;
+  padding: 0; /* Remove padding */
+  box-sizing: border-box; /* Include padding and border in the element's dimensions. The border-box value for box-sizing makes the element's total width and height include the padding and border, not just the content */
 }
 
+/*add padding to text inside the feature post array but no padding around image border*/
+.featured h2, .featured p {
+  padding: 0.5em; /* Adjust the padding value as needed */
+}
 
   .left-column {
     grid-row: span 1;
@@ -82,9 +130,11 @@ const otherPosts = allPosts.slice(1, 5);
   img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 0px;
   }
 
+
+  /* Responsive Styles posts */
   @media (max-width: 1024px) {
     .posts-grid {
       grid-template-columns: 1fr 2fr 1fr;
@@ -99,5 +149,96 @@ const otherPosts = allPosts.slice(1, 5);
     .post-item, .featured, .left-column, .right-column {
       grid-column: auto;
     }
+
+    .featured h2, .featured p {
+    padding: 0.25em; /* Smaller padding text featured posts for smaller screens. text in featured posts array */
   }
+  }
+
+  /*HERO EMAIL FORM SETTINGS*/
+/* Override BaseLayout margins settings so hero can span flush */
+.full-width-hero {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-image: linear-gradient(to right, rgb(0, 255, 149) , rgb(0, 255, 255));
+}
+
+/* Hero Section Styles */
+.hero {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  max-width: 42em; /* Set max width for the hero content */
+  margin: auto; /* Center the hero content block */
+}
+
+.hero-text {
+  text-align: center; /* Center the text */
+  margin: 1rem; /* Add space between text and form */
+}
+
+.hero-form {
+  display: flex;
+  flex-direction: column; /* Stack input and button vertically */
+  width: 100%;
+  gap: 0.5rem; /* Add space between input and button */
+}
+
+
+.hero-form input,
+.hero-form button {
+  width: 170%; /* Full width for input and button */
+  padding: 0.5rem;
+  height:2.5em;
+}
+
+
+.hero-form input {
+  border: 1px solid #000;
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+
+.hero-form button {
+  background-color: #932cfa;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-form button:hover {
+  background-color: #070439;
+}
+
+
+
+
+/* Responsive Styles HERO */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .hero-content {
+    flex-direction: column;
+  }
+
+  .hero-form {
+    width: 100%;
+  }
+
+  .hero-form input {
+    width: 100%;
+    margin-bottom: 0.5rem; /* Ensure space between input and button */
+  }
+}
 </style>

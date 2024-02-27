@@ -29,6 +29,7 @@ const handleSubmit = (event) => {
 
             // Hides the form to prevent further submissions and reduce clutter
             myForm.style.display = 'none';
+            document.getElementById("text-subscribe").style.display = 'none';
 
             // Resets the form fields to their initial values
             myForm.reset();

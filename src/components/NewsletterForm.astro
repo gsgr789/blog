@@ -6,7 +6,7 @@ import '../styles/newsletter-form.css';
 
 ---
 <!--first form to enter email -->
-<div class="form-row">
+<div class="form-row" id="text-subscribe">
   <p class="form-copy">Subscribe for the best tips each Saturday!</p>
 </div>
   <form name="contact" method="POST" data-netlify="true" id="newsletter-form">
@@ -31,10 +31,6 @@ import '../styles/newsletter-form.css';
       <button type="submit" id="comment-submit">Submit Comment</button>
  </div>
  
- <!--messages that appear after user enters comment -->
-  <div id="thanks-comment" style="display: none;">🥳Thanks for your comment!😀</div>
-  <div id="problem-comment" style="display: none;">Oh no there was a problem</div>
-</div>
     </form>
   
 <script src="/src/scripts/newsletter.js"></script>

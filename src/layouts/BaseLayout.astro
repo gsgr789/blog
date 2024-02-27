@@ -8,9 +8,9 @@ export interface Props {
   description: string;
   permalink: string;
   current?: string;
-  showNewsletterForm?: boolean; // Add this line to don't show newsletter form in index
+  
 }
-const { title, description, permalink, current, showNewsletterForm } = Astro.props;
+const { title, description, permalink, current } = Astro.props;
 ---
 <html lang="en">
 <head>
@@ -22,9 +22,8 @@ const { title, description, permalink, current, showNewsletterForm } = Astro.pro
     <main>
       <slot />
     </main>
-
-    <!-- <Footer showNewsletterForm={showNewsletterForm} /> --> <!--Pass the prop here -->
   </div>
+  <Footer/>
 </body>
 </html>
  

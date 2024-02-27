@@ -10,13 +10,11 @@ const description = 'The perfect starter for your perfect blog.';
 const permalink = Astro.site.href;
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} showNewsletterForm={false}><!-- pass false here so it does not show newsletter from footer-->
+<BaseLayout title={title} description={description} permalink={permalink}>
   <!-- Page content -->
   <div class="home-container">
     <div class="home-copy">
       <h1 style="text-align: center;">Get better at getting better</h1>
-<!--<p>Subscribe to get the latest tips</p>-->
-      <NewsletterForm align="left"/> <!-- This will render the NewsletterForm with left alignment --><!-- This will render the NewsletterForm in the body -->
     </div>
     
 

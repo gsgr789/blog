@@ -3,19 +3,10 @@
 
 // Import the NewsletterForm component
 import NewsletterForm from './NewsletterForm.astro';
-
-// Add a prop to control the display of the newsletter form
-export interface Props {
-  showNewsletterForm?: boolean;
-}
-
-const { showNewsletterForm = true } = Astro.props;
-
 ---
 
 <footer>
-  <!-- Use the showNewsletterForm prop to conditionally render the NewsletterForm -->
-  {showNewsletterForm && <NewsletterForm />}
+  <NewsletterForm />
   </footer>
   <footer>
   <span>

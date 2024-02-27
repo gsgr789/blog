@@ -25,7 +25,7 @@ const handleSubmit = (event) => {
         if (response.ok) {
             // If the submission was successful, display a success message to the user
             document.getElementById("success-message").style.display = 'block';
-            alert("Thank you for your submission");
+            alert("Thank you for subscribing 🥳");
 
             // Hides the form to prevent further submissions and reduce clutter
             myForm.style.display = 'none';

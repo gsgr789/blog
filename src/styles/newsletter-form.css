@@ -1,6 +1,5 @@
-/* newsletter.css */
+/* newsletter-form.css */
 
-  
   .form-copy {
     text-align: center;
   }
@@ -46,7 +45,6 @@ footer {
     font-size: 1.4em;
   }
 
-  
   button:hover {
     background-color: #b30000;
   }

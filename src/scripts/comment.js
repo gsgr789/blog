@@ -1,7 +1,7 @@
 //commentForm.js
 
 // Define the submitComment function
-const submitComment = async (event) => {
+const submitComment = (event) => {
   // Prevent the default form submit action to handle with JavaScript
   event.preventDefault();
   
@@ -11,30 +11,37 @@ const submitComment = async (event) => {
   // Create a new FormData object, which is a way to encapsulate form data to send to the server
   const formData = new FormData(commentForm);
   
-  // Try to send the form data using the Fetch API
-  try {
-    // Send a POST request to the server root ("/") with the form data
-    await fetch("/", {
+  fetch("/", {
       method: "POST", // Specify the method to be POST
-      headers: { "Content-Type": "application/x-www-form-urlencoded" }, // Set the content type header for the request
-      body: new URLSearchParams(formData).toString(), // Convert the FormData object to a URL-encoded string
-    });
-
-    // If the request is successful, un-hide the hidden div to display a thank you message
-    document.getElementById("thanks-comment").style.display = 'block';
-    
-    // Optionally, hide the comment form to prevent further submissions
-    commentForm.style.display = 'none';
-  } catch (error) {
-    // If the request fails, log the error to the console
-    console.error('Error:', error);
-    
-    // Display an error message to the user by un-hide the hidden div
-    document.getElementById("problem-comment").style.display = 'block';
-  }
+      headers: {
+        // Sets the Content-Type header to indicate the format of the data being sent
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    // Converts the FormData object to a URL-encoded string, suitable for POSTing
+    body: new URLSearchParams(formData).toString(),
+})
   
-  // Reset the form fields after submission, regardless of success or failure
-  commentForm.reset();
+.then(response => {
+  // Checks if the server responded with a success status code
+  if (response.ok) {
+      // If the submission was successful, display a success message to the user
+      document.getElementById("success-message").style.display = 'block';
+      alert("Thank you for your comment😀");
+
+      // Hides the form to prevent further submissions and reduce clutter
+      commentForm.style.display = 'none';
+
+      // Resets the form fields to their initial values
+      commentForm.reset();
+  } else {
+      // If the server response was not successful, throw an error
+      throw new Error('Network response was not ok.');
+  }
+})
+.catch((error) => {
+  // Catches any errors that occurred during the fetch operation or response handling
+  alert(error);
+});
 };
 
 // Define a function to attach the submit event listener to the form

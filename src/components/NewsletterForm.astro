@@ -5,20 +5,21 @@
 import '../styles/newsletter-form.css';
 
 ---
+<!--first form to enter email -->
 <div class="form-row">
-  <p class="form-copy">Subscribe for weekly actionable insights to improve your life and one-person business</p>
+  <p class="form-copy">Subscribe for the best tips each Saturday!</p>
 </div>
   <form name="contact" method="POST" data-netlify="true" id="newsletter-form">
       <div class="form-row">
           <input type="email" id="email" name="email" placeholder="Enter your email" required>
-          <button type="submit">Read for free</button>
+          <button type="submit">Read for free!</button>
       </div>
     </form>
 
-<!--second form that appears after user enter email. this second form is to send the comment -->
+<!--second form that appears after user enters email. this second form is to send the comment -->
 <div id="success-message" style="display: none;">
   <div class="form-row">
-  <p class="form-copy">Please comment</p> 
+  <p class="form-copy">Thanks for subscribing! Please comment</p> 
 </div>
     <form id="comment-form" name="comment-form" method="POST" data-netlify="true" action="#">
       <div class="form-row">
@@ -30,7 +31,8 @@ import '../styles/newsletter-form.css';
       <button type="submit" id="comment-submit">Submit Comment</button>
  </div>
  
-  <div id="thanks-comment" style="display: none;">Thanks for your comment!</div>
+ <!--messages that appear after user enters comment -->
+  <div id="thanks-comment" style="display: none;">🥳Thanks for your comment!😀</div>
   <div id="problem-comment" style="display: none;">Oh no there was a problem</div>
 </div>
     </form>

@@ -28,8 +28,14 @@ const submitComment = (event) => {
       //document.getElementById("success-message").style.display = 'block';
       alert("Thank you for your comment😀");
 
-      // Hides the form to prevent further submissions and reduce clutter
+      // Hides the comment form to prevent further submissions and reduce clutter
       commentForm.style.display = 'none';
+
+      //Hides the text above the comment form after user submitted the comment form
+      document.getElementById("text-comment").style.display = 'none';
+
+      //Hides the text above the comment form after user submitted the comment form
+      document.getElementById("text-comment-2").style.display = 'none';
 
       // Resets the form fields to their initial values
       commentForm.reset();

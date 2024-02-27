@@ -27,7 +27,7 @@ const handleSubmit = (event) => {
             document.getElementById("success-message").style.display = 'block';
             alert("Thank you for subscribing 🥳");
 
-            // Hides the form to prevent further submissions and reduce clutter 
+            // Hides the email form to prevent further submissions and reduce clutter 
             myForm.style.display = 'none';
 
             //Hides the text above the form after user submitted the email form

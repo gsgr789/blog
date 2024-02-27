@@ -25,7 +25,7 @@ const submitComment = (event) => {
   // Checks if the server responded with a success status code
   if (response.ok) {
       // If the submission was successful, display a success message to the user
-      document.getElementById("success-message").style.display = 'block';
+      //document.getElementById("success-message").style.display = 'block';
       alert("Thank you for your comment😀");
 
       // Hides the form to prevent further submissions and reduce clutter

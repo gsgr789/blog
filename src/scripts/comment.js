@@ -27,6 +27,7 @@ const submitComment = (event) => {
       // If the submission was successful, display a success message to the user
       //document.getElementById("success-message").style.display = 'block';
       alert("Thank you for your comment😀");
+      document.getElementById("good-day").style.display = 'block';
 
       // Hides the comment form to prevent further submissions and reduce clutter
       commentForm.style.display = 'none';
